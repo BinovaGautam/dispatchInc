@@ -51,36 +51,23 @@ const TabItem = ({
          
           return {
             transform: [
-              {scale : withSpring(isFocused ? 0.8 : 1)},
+              {scale : withSpring(isFocused ? 1.05 : 1)},
               // {rotate: withTiming(Math.PI * (isFocused ? 2: 0)+'rad', {duration:500}) },
             ],
           };
         });
 
-        // useEffect(() => {
-        //     if (isFocused) {
-        //         console.log('FOCUSED',label)
-        //         opacity.value = withTiming(1,{duration:1500});
-        //     }
-        // }, [isFocused]);
-
        
-
-
-            
-
             return (
                 <TouchableOpacity onPress={onPress}  >
                 <Animated.View style={[styles.tab,isFocused && styles.selectedTab,isFocused && animationStyle]}>
                 <View style={styles.icon}>
                     {_renderIcon && _renderIcon(label,isFocused)}
                 </View>
-                {
-                    isFocused &&
+               
                     <Text style={[styles.label,isFocused && {color :Colors.font}]}>
                        {" "} {label}
                     </Text> 
-                }
                 </Animated.View>
                 </TouchableOpacity>
             );
@@ -89,17 +76,9 @@ const TabItem = ({
 export default TabItem
 
 const styles = StyleSheet.create({
-  tab: {
-    // flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
+ 
   selectedTab: {
-    backgroundColor: Colors.paperBg,
-    padding: 5,
-    borderRadius: 25,
-    paddingHorizontal: 15,
+    
   },
   icon: {
     marginBottom: 5,

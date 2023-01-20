@@ -5,9 +5,10 @@ import {CText, InputComp, VGap} from '@/Components';
 
 type Props = {
     toggleLogin: () => void;
+    handleChangeText : (text : string, name : string) => void;
 };
 
-const SignupFragment = ({toggleLogin}: Props) => {
+const SignupFragment = ({toggleLogin,handleChangeText}: Props) => {
   const {Colors} = useTheme();
   return (
     <View>

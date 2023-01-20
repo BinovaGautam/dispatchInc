@@ -8,11 +8,13 @@ import {
   View,
 } from 'react-native';
 import React, { useState } from 'react';
-import {useTheme} from '@/Hooks';
+import {useAuth, useTheme} from '@/Hooks';
 import {Colors, MetricsSizes} from '@/Theme/Variables';
 import {Brand, CText, InputComp, PrimaryButton, VGap} from '@/Components';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { LoginFragment, SignupFragment } from '@/Fragments';
+import { useMutation } from 'react-query';
+import { loginService } from '@/ApiServices';
 
 type Props = {};
 
@@ -21,11 +23,15 @@ const {SMALL,REGULAR} = MetricsSizes
 const LoginContainer = (props: Props) => {
   const {Layout, Images} = useTheme();
   const [isVisible, setVisible] = useState(false);
-  const [isLogin, setLogin] = useState(false);
+  const [isLogin, setLogin] = useState(true);
+  const { handleSubmit, loginMutation,handleChangeText,userDetails} =
+    useAuth();
 
   const toggleLogIn = () => {
     setLogin(!isLogin);
   };
+
+  
   
   const title = !isLogin ? 'Sign up' : 'Log in';
   return (
@@ -44,7 +50,7 @@ const LoginContainer = (props: Props) => {
           By continuing, you agree to our
           <CText as="psm" color={Colors.SECONDARY}>
             {' '}
-            User Agreement
+            User Agreement{' '}
           </CText>
           and acknowledge that you understand the
           <CText as="psm" color={Colors.SECONDARY}>
@@ -56,14 +62,15 @@ const LoginContainer = (props: Props) => {
         <VGap height={SMALL * 2} />
 
         {isLogin ? (
-          <LoginFragment toggleLogin={toggleLogIn} />
+          <LoginFragment handleChangeText={handleChangeText} toggleLogin={toggleLogIn} />
         ) : (
-          <SignupFragment toggleLogin={toggleLogIn} />
+          <SignupFragment handleChangeText={handleChangeText} toggleLogin={toggleLogIn} />
         )}
       </View>
       <PrimaryButton
+        loading={loginMutation?.isLoading}
         title={isLogin ? 'Continue' : 'Sign up'}
-        onPress={() => {}}
+        onPress={() => handleSubmit(isLogin)}
       />
     </View>
   );

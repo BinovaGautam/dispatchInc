@@ -52,13 +52,10 @@ const TabBarFragment = (props: any) => {
             case 'home':
                 return <ImgIcon icon={Images.logo} />
                 break;
-            case 'progress':
+            case 'upload':
                 return <ImgIcon icon={Images.logo} />;
                 break;
-            case 'leaderboard':
-                return <ImgIcon icon={Images.logo} />;
-                break;
-            case 'user':
+            case 'account':
                 return <ImgIcon icon={Images.logo} />;
                 break;
 

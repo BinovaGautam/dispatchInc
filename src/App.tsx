@@ -5,7 +5,11 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 import { store, persistor } from '@/Store'
 import ApplicationNavigator from '@/Navigators/Application'
 import { Text, View } from 'react-native'
+import { StartupContainer } from './Containers'
+import { QueryClient, QueryClientProvider } from 'react-query'
 // import './Translations'
+
+const queryClient = new QueryClient()
 
 const App = () => (
   <Provider store={store}>
@@ -16,11 +20,10 @@ const App = () => (
      * for example `loading={<SplashScreen />}`.
      * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
      */}
-    <PersistGate loading={null} persistor={persistor}>
-      <ApplicationNavigator />
-      {/* <View style={{flex:1,backgroundColor: 'red',}}>
-        <Text style={{color: 'white',}}>Hello World again Dubara</Text>
-      </View> */}
+    <PersistGate loading={<StartupContainer/>} persistor={persistor}>
+      <QueryClientProvider client={queryClient}>
+        <ApplicationNavigator />
+      </QueryClientProvider>
     </PersistGate>
   </Provider>
 )

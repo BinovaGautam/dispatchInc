@@ -12,13 +12,11 @@ const Tab = createBottomTabNavigator();
 const MainNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown: true}}
-    tabBar = {props => <TabBarFragment {...props} />}
-    
-         >
+    tabBar = {props => <TabBarFragment {...props} />} 
+     >
       <Tab.Screen name="Home" component={ExampleContainer} />
-      <Tab.Screen name="Progress" component={ExampleContainer} />
-      <Tab.Screen name="LeaderBoard" component={ExampleContainer} />
-      <Tab.Screen name="User" component={ExampleContainer} />
+      <Tab.Screen name="Upload" component={ExampleContainer} />
+      <Tab.Screen name="Account" component={ExampleContainer} />
     </Tab.Navigator>
   );
 }
