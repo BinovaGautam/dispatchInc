@@ -1,20 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import useTheme from '@/Hooks/useTheme'
-import { CText } from '.'
+import { CText, Icon } from '.'
 import { MetricsSizes } from '@/Theme/Variables'
 
 type Props = {
     text ? : string
 }
 
-const {height} = MetricsSizes
+const {height,LARGE} = MetricsSizes
 
 const EmptyComponent = ({text}: Props) => {
-    const {Layout} = useTheme()
+    const {Layout,Colors} = useTheme()
   return (
     <View style={[Layout.fill , Layout.colCenter , Layout.justifyContentCenter,styles.container]} >
-       <CText as="h5" style={{textAlign:'center'}}> {text || "No Data Found"} </CText>
+       <Icon type="Bootstrap" name="clipboard2" size={LARGE*2} color={Colors.primary} />
+       <CText as="h5" style={{textAlign:'center',marginVertical : 20}}> {text || "No Data Found"} </CText>
     </View>
   )
 }

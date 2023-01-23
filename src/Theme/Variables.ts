@@ -17,19 +17,21 @@ export const Colors = {
   white: '#ffffff',
   primaryBg :"#f1f1f1",
   text: '#212529',
-  font: "#212529",
+  font: "#000",
   primary: '#000000',
   paperBg: "#0ACF8347",
   primaryDark: '#01733B',
   success: '#0DAF36',
   error: '#dc3545',
   grey : '#80808060',
-  golden: '#FFD700', 
+  grey200: '#F1F2F4',
+  golden: '#FFCF98', 
   indicator: "#55efc4",
   INPUT_BORDER: "#E9E9E9",
   INPUT_PLACEHOLDER: "#CECECE",
   SUBTEXT: "#7F7E7E",
   SECONDARY: "#075B81",
+  REJECTED_BG: "#4B4B4B"
 }
 
 export const NavigationColors = {

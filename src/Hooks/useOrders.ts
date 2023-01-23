@@ -1,6 +1,6 @@
 import { getAllOrder } from "@/ApiServices";
 import { useState } from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { useAuth } from ".";
 
 const useOrders = () => {
@@ -8,19 +8,12 @@ const useOrders = () => {
     const {userDetails} = useAuth()
     const {id} = userDetails
 
-    const allOrdersMutation = useMutation(() => getAllOrder(id),{
-        onError: (error) => {
-            console.log('ERROR WHILE FETCHING ORDERS LIST',error)
-        },
-        onSuccess: (data) => {
-            console.log('FETCHED ORDERS LIST',data)
-            setOrders(data)
-        }
-    })
+
+    const allOrdersQuery = useQuery('allOrders',() => getAllOrder(id))
 
     return{
         orders,
-        allOrdersMutation,
+        allOrdersQuery,
         userDetails
     }
 

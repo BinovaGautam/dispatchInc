@@ -1,12 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Colors } from '@/Theme/Variables';
+import { Colors, MetricsSizes } from '@/Theme/Variables';
 import { useTheme } from '@/Hooks';
 import Animated from 'react-native-reanimated';
-import { ImgIcon, TabItem } from '@/Components';
+import { Icon, ImgIcon, TabItem } from '@/Components';
 
 type Props = {}
+const {TINY,SMALL,REGULAR} = MetricsSizes
 
 const tabs: any = {
   Home: {
@@ -46,17 +47,17 @@ const TabBarFragment = (props: any) => {
     const {Images} = useTheme()
 
     const _renderIcon = (label:string,isFocused :boolean) => {
-        let color = isFocused ? Colors.primaryDark : Colors.text
+        let color = isFocused ? Colors.primary : Colors.grey
         let size = 20
         switch (label.trim().toLowerCase()) {
             case 'home':
-                return <ImgIcon icon={Images.logo} />
+                return <Icon type="Bootstrap" name="house-door-fill" size={SMALL*2} color={color} />
                 break;
             case 'upload':
-                return <ImgIcon icon={Images.logo} />;
+                return <Icon type="Bootstrap" name="cloud-arrow-up" size={SMALL*2} color={color} />;
                 break;
             case 'account':
-                return <ImgIcon icon={Images.logo} />;
+                return <Icon type="Bootstrap" name="person" size={SMALL*2} color={color} />;
                 break;
 
         
@@ -81,11 +82,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         flexDirection: 'row',
-        borderTopWidth: 0.5,
-        borderTopColor: '#ccc',
         justifyContent: 'space-around',
         alignItems: 'center',
-        padding: 5,
+        padding: TINY,
 
     },
    

@@ -12,7 +12,7 @@ const ExampleContainer = (props: Props) => {
   return (
     <View style={{backgroundColor: '#fff', flex: 1}}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-      <TestComp />
+      {/* <TestComp /> */}
     </View>
   );
 }

@@ -17,7 +17,7 @@ import {IconType} from '@/Components';
 import {createIconSet} from 'react-native-vector-icons';
 import glyphmap from '@/Assets/fonts/bootstrap-icons.json';
 
-const BootstrapIcon = createIconSet(glyphmap, 'bootstrap-icons');
+const BootstrapIcon = createIconSet(glyphmap, 'Bootstrap-icons');
 
 type Props = {
   name: string;
@@ -65,7 +65,7 @@ const IconComp = ({
       case 'Bootstrap':
         return BootstrapIcon;
       default:
-        return Ionicons;
+        return BootstrapIcon;
     }
   };
 

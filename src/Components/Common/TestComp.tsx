@@ -22,11 +22,18 @@ const TestComp = (props: Props) => {
       {/* <Text>Orders : {JSON.stringify} </Text> */}
 
       <SomeSvg width={20} height={20} fill={Colors.golden} />
-      <Icon type="Bootstrap" name="home" size={30} color={Colors.primary} />
+      <Icon type="Bootstrap" name="airplane" size={30} color={Colors.primary} />
+
+      <Text style={styles.sampleText}>Sample Text 123</Text>
     </View>
   );
 }
 
 export default TestComp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  sampleText : {
+    color: 'red',
+    fontFamily : 'Roboto-medium'
+  }
+})
